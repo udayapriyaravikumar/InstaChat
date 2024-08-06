@@ -1,0 +1,59 @@
+apges index
+
+// src/pages/index.js
+import React from 'react';
+
+const IndexPage = ({ messages }) => {
+  return (
+    <div>
+      <h1>InstaChat</h1>
+      <ul>
+        {messages && messages.map((message, index) => ( /* Add a null check for messages */
+          <li key={index}>{message.text}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default IndexPage;
+
+import firebase from 'firebase/app';
+import 'firebase/database';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCw-xqMEcBaLOXgcMz8tJzUrzqlaATSt7Q",
+    authDomain: "instachat-2e1f7.firebaseapp.com",
+    projectId: "instachat-2e1f7",
+    storageBucket: "instachat-2e1f7.appspot.com",
+    messagingSenderId: "233532080921",
+    appId: "1:233532080921:web:e60aba24a5201888813b88"
+    };
+
+firebase.initializeApp(firebaseConfig);
+
+const database = firebase.database();
+
+export { database };
+
+
+
+
+import { initializeApp } from 'firebase/app';
+import { getDatabase } from 'firebase/database';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCw-xqMEcBaLOXgcMz8tJzUrzqlaATSt7Q",
+    authDomain: "instachat-2e1f7.firebaseapp.com",
+    projectId: "instachat-2e1f7",
+    storageBucket: "instachat-2e1f7.appspot.com",
+    messagingSenderId: "233532080921",
+    appId: "1:233532080921:web:e60aba24a5201888813b88"
+    };
+
+
+const app = initializeApp(firebaseConfig);
+
+const database = getDatabase(app);
+
+export { database };

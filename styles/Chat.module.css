@@ -1,0 +1,330 @@
+/* Import the font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.desktopContainer {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* Ensure full viewport height */
+    background-image: url('/background.webp'); /* Background image */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    backdrop-filter: blur(15px) brightness(0.8); /* Increased blur and brightness for frosted glass effect */
+    -webkit-backdrop-filter: blur(15px) brightness(0.8); /* For Safari */
+    background-color: rgba(255, 255, 255, 1); /* Increased opacity for the background color */
+}
+
+.sidebar {
+    width: 320px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    border-right: 1px solid rgba(255, 214, 100, 0.1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.15);
+    padding: 0; /* Adjust padding */
+    overflow: hidden; /* Prevents the sidebar from overflowing */
+    backdrop-filter: blur(3.5px); /* Apply the frosted glass effect */
+    -webkit-backdrop-filter: blur(3.5px); /* For Safari */
+}
+
+.sidebarHeader {
+    font-size: 32px; /* Increased font size for the text */
+    font-family: 'Playwrite BE VLG', sans-serif; /* Use Playwrite België Vlaams Gewest font */
+    font-weight: bold; /* Bold text */
+    color: #333; /* Text color */
+    padding: 30px 10px; /* Increased padding to move elements down further */
+    text-align: center;
+}
+
+.backButton {
+    background-color: #ffb84d; /* Yellowish-orange button color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    margin: 20px 10px 10px 10px; /* Increased top margin to move button down */
+    font-weight: bold;
+}
+
+.backButton:hover {
+    background-color: #ffa31a; /* Darker shade on hover */
+}
+
+.searchInput {
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #ddd;
+    background-color: #ffe4b5; /* Light yellowish-orange input background */
+    border-radius: 8px; /* Rounded corners */
+    width: calc(100% - 30px); /* Adjust width to fit within the sidebar */
+    margin: 20px auto 10px auto; /* Increased top margin to move input down */
+}
+
+.section {
+    margin-top: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Allows vertical scrolling within the section */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    padding: 0 10px; /* Add horizontal padding to avoid cutting off elements */
+}
+
+.userList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    overflow-y: auto; /* Allows vertical scrolling within the user list */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.user {
+    padding: 15px;
+    border-bottom: 1px solid #f1f1f1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+    margin: 0 10px; /* Add margin for padding effect */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px; /* Add margin between profile picture and user info */
+    overflow: hidden; /* Ensure text does not overflow */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.userName {
+    font-weight: bold;
+}
+
+.lastMessage {
+    color: #888;
+    font-size: 14px;
+}
+
+.user:hover, .user.selected {
+    background-color: #fff5e6; /* Light yellowish-orange on hover/selected */
+}
+
+.chatWindow {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    height: 100%; /* Ensure it fills the height */
+    overflow: hidden; /* Prevents the chat window from overflowing */
+    border-radius: 10px; /* Rounded corners */
+    margin: 10px;
+}
+
+.chatHeader {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    background-color: #ffdc91;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Prevents shrinking */
+}
+
+.unfriendButton {
+    background-color: #ff4d4d; /* Red color for unfriend button */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    font-weight: bold;
+    position: absolute; /* Position unfriend button */
+    top: -2px; /* Align unfriend button to top right */
+    right: 15px; /* Align unfriend button to top right */
+}
+
+.unfriendButton:hover {
+    background-color: #e60000; /* Darker shade on hover */
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Ensure it fills the width */
+    position: relative; /* Add relative positioning for absolute positioning of unfriend button */
+}
+
+.profilePictureSmall {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd; /* Placeholder for profile picture */
+    margin-right: 10px;
+}
+
+.profileDetails {
+    flex: 1; /* Ensure it takes the available space */
+}
+
+.profileDetails h2 {
+    margin: 0;
+    font-size: 20px;
+    text-align: left; /* Align name to the left */
+}
+
+.profileDetails span {
+    font-size: 14px;
+    color: #777;
+}
+
+.chatMessages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto; /* Allows scrolling within the chat messages */
+}
+
+.dateSeparator {
+    text-align: center;
+    margin: 15px 0;
+    font-size: 14px;
+    color: #888;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 10px 15px 25px 15px; /* Additional padding at the bottom for the timestamp */
+    border-radius: 10px;
+    max-width: 60%;
+    min-width: 100px; /* Minimum width to accommodate timestamp */
+    position: relative;
+    display: inline-block; /* Inline block to adjust to the text size */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+    word-wrap: break-word; /* Ensures words wrap */
+}
+
+.messageContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.messageText {
+    margin-bottom: 5px;
+    word-wrap: break-word;
+}
+
+.message.sent {
+    background: rgba(255, 223, 186, 0.6); /* Golden tint for sent messages */
+    color: #000;
+    align-self: flex-end; /* Display sent messages on the right */
+    text-align: left;
+    margin-left: auto;
+    display: block; /* Ensure proper block display */
+    float: right;
+    clear: both;
+}
+
+.message.received {
+    background: rgba(255, 243, 205, 0.6); /* Lighter golden tint for received messages */
+    color: #000;
+    align-self: flex-start; /* Display received messages on the left */
+    display: block; /* Ensure proper block display */
+    float: left;
+    clear: both;
+}
+
+.message .time {
+    font-size: 0.75em;
+    color: #888;
+    position: absolute;
+    bottom: 5px;
+    right: 10px; /* Adjusted to match padding */
+}
+
+.chatInputContainer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0; /* Prevents shrinking */
+}
+
+.chatInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px; /* Rounded input */
+    outline: none;
+    background-color: #fffbe6; /* Light yellowish-orange input background */
+    margin-right: 10px;
+}
+
+.sendButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px; /* Rounded button */
+    background-color: #ffb84d; /* Yellowish-orange button color */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.sendButton:hover {
+    background-color: #ffa31a; /* Darker shade on hover */
+}
+
+/* Add styles for other buttons to make them more elegant and beautiful */
+.addFriendButton,
+.cancelRequestButton,
+.chatButton,
+.acceptButton,
+.rejectButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px; /* Rounded button */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 5px; /* Add some margin for spacing */
+    background-color: #ffb84d; /* Yellowish-orange button color */
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+    font-size: 14px; /* Slightly larger text */
+}
+
+.addFriendButton:hover,
+.cancelRequestButton:hover,
+.chatButton:hover,
+.acceptButton:hover,
+.rejectButton:hover {
+    background-color: #ffa31a; /* Darker shade on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds a more prominent shadow on hover */
+}
+
+.elegantButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px; /* Rounded button */
+    background-color: #ffb84d; /* Yellowish-orange button color */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+    font-size: 14px; /* Slightly larger text */
+    margin: 5px; /* Add some margin between buttons */
+}
+
+.elegantButton:hover {
+    background-color: #ffa31a; /* Darker shade on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds a more prominent shadow on hover */
+}

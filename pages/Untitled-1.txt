@@ -1,0 +1,44 @@
+// pages/index.js
+import React, { useState, useEffect } from 'react';
+import { database } from '../firebase';
+import ChatRoom from '../components/ChatRoom';
+import { ref, onValue } from 'firebase/database';
+
+const IndexPage = () => {
+  const [users, setUsers] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(null);
+
+  useEffect(() => {
+    const usersRef = ref(database, 'online');
+    onValue(usersRef, (data) => {
+      const onlineUsers = data.val();
+      if (onlineUsers) {
+        setUsers(Object.keys(onlineUsers));
+      } else {
+        setUsers([]); // or some other default value
+      }
+    });
+  }, []);
+
+  const handleSelectUser = (userId) => {
+    setSelectedUser(userId);
+  };
+
+  return (
+    <div>
+      <h1>Instachat Online Users</h1>
+      <ul>
+        {users.map((user) => (
+          <li key={user}>
+            <a href="#" onClick={() => handleSelectUser(user)}>
+              {user}
+            </a>
+          </li>
+        ))}
+      </ul>
+      {selectedUser && <ChatRoom userId={selectedUser} />}
+    </div>
+  );
+};
+
+export default IndexPage;

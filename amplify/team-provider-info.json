@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-instachat-dev-7cd13-authRole",
+      "UnauthRoleArn": "arn:aws:iam::992382762253:role/amplify-instachat-dev-7cd13-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::992382762253:role/amplify-instachat-dev-7cd13-authRole",
+      "Region": "ca-central-1",
+      "DeploymentBucketName": "amplify-instachat-dev-7cd13-deployment",
+      "UnauthRoleName": "amplify-instachat-dev-7cd13-unauthRole",
+      "StackName": "amplify-instachat-dev-7cd13",
+      "StackId": "arn:aws:cloudformation:ca-central-1:992382762253:stack/amplify-instachat-dev-7cd13/b3c965b0-494b-11ef-9181-025a37ba1391",
+      "AmplifyAppId": "d37xf2838l98n3"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+/* Import the font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/background.webp'); /* Background image */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    backdrop-filter: blur(15px) brightness(0.8); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(15px) brightness(0.8); /* For Safari */
+}
+
+.fullHeight {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.title {
+    font-size: 32px; /* Font size for titles */
+    margin-bottom: 20px;
+    color: #333; /* Text color */
+}
+
+.input {
+    width: calc(100% - 20px); /* Full width with some padding */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Rounded corners */
+    outline: none;
+}
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px; /* Rounded button */
+    background-color: #ffb84d; /* Yellowish-orange button color */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 10px 0;
+    width: 100%; /* Full width button */
+}
+
+.button:hover {
+    background-color: #ffa31a; /* Darker shade on hover */
+}
+
+.link {
+    color: #ffb84d;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.error {
+    color: red;
+    margin: 10px 0;
+}

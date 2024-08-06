@@ -1,0 +1,33 @@
+workinf.index.js
+
+// src/pages/_app.js
+import React from 'react';
+import AppProps from 'next/app';
+import { database } from '../firebase'; // Import the database object
+
+function MyApp({ Component, pageProps }) {
+  const [messages, setMessages] = React.useState([]);
+
+  React.useEffect(() => {
+    console.log('Fetching messages from Firebase Realtime Database...');
+    const messagesRef = database.ref('messages');
+    messagesRef.on('value', (snapshot) => {
+      const messagesData = snapshot.val();
+      console.log('Messages data:', messagesData);
+      setMessages(Object.values(messagesData));
+    });
+  }, []);
+
+  return (
+    <div>
+      <Component {...pageProps} messages={messages} /> {/* Pass messages as a prop */}
+    </div>
+  );
+}
+
+MyApp.getInitialProps = async (appContext) => {
+  const appProps = await AppProps.getInitialProps(appContext);
+  return { ...appProps };
+};
+
+export default MyApp;
